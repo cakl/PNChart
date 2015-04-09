@@ -15,7 +15,7 @@
 
 - (id)initWithFrame:(CGRect)frame items:(NSArray *)items;
 
-@property (nonatomic, readonly) NSArray	*items;
+@property (nonatomic) NSArray	*items;
 
 /** Default is 18-point Avenir Medium. */
 @property (nonatomic) UIFont  *descriptionTextFont;
@@ -35,10 +35,16 @@
 /** Show only values, this is useful when legend is present */
 @property (nonatomic) BOOL showOnlyValues;
 
+@property (nonatomic) BOOL showOnlyDescriptionIfAvailable;
+
 /** Show absolute values not relative i.e. percentages */
 @property (nonatomic) BOOL showAbsoluteValues;
 
 @property (nonatomic, weak) id<PNChartDelegate> delegate;
+
+@property (nonatomic) CGFloat outerCircleRadius;
+
+@property (nonatomic) CGFloat innerCircleRadius;
 
 - (void)strokeChart;
 

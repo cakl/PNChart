@@ -141,28 +141,31 @@
         self.rightLabel.hidden = NO;
         
         
-        NSArray *items = @[[PNPieChartDataItem dataItemWithValue:10 color:PNLightGreen],
-                           [PNPieChartDataItem dataItemWithValue:20 color:PNFreshGreen description:@"WWDC"],
-                           [PNPieChartDataItem dataItemWithValue:40 color:PNDeepGreen description:@"GOOG I/O"],
+        NSArray *items = @[[PNPieChartDataItem dataItemWithValue:100 color:PNGreyTone0 description:@"30"],
+                           [PNPieChartDataItem dataItemWithValue:100 color:PNGreyTone1 description:@"70"],
+                           [PNPieChartDataItem dataItemWithValue:100 color:PNGreyTone2 description:@"85"],
                            ];
         
-        self.pieChart = [[PNPieChart alloc] initWithFrame:CGRectMake(SCREEN_WIDTH /2.0 - 100, 135, 200.0, 200.0) items:items];
+        //self.pieChart = [[PNPieChart alloc] initWithFrame:CGRectMake(SCREEN_WIDTH /2.0 - 100, 135, 200.0, 200.0) items:items];
+        self.pieChart.items = items;
+        self.pieChart.innerCircleRadius = 0;
         self.pieChart.descriptionTextColor = [UIColor whiteColor];
         self.pieChart.descriptionTextFont  = [UIFont fontWithName:@"Avenir-Medium" size:11.0];
         self.pieChart.descriptionTextShadowColor = [UIColor clearColor];
         self.pieChart.showAbsoluteValues = NO;
         self.pieChart.showOnlyValues = NO;
+        self.pieChart.showOnlyDescriptionIfAvailable = YES;
         [self.pieChart strokeChart];
         
         
         self.pieChart.legendStyle = PNLegendItemStyleStacked;
         self.pieChart.legendFont = [UIFont boldSystemFontOfSize:12.0f];
         
-        UIView *legend = [self.pieChart getLegendWithMaxWidth:200];
-        [legend setFrame:CGRectMake(130, 350, legend.frame.size.width, legend.frame.size.height)];
-        [self.view addSubview:legend];
+//        UIView *legend = [self.pieChart getLegendWithMaxWidth:200];
+//        [legend setFrame:CGRectMake(130, 350, legend.frame.size.width, legend.frame.size.height)];
+//        [self.view addSubview:legend];
     
-        [self.view addSubview:self.pieChart];
+        //[self.view addSubview:self.pieChart];
         self.changeValueButton.hidden = YES;
     }
     else if ([self.title isEqualToString:@"Scatter Chart"])

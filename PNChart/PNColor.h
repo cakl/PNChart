@@ -24,6 +24,9 @@
 #define PNFreshGreen    [UIColor colorWithRed:77.0 / 255.0 green:196.0 / 255.0 blue:122.0 / 255.0 alpha:1.0f]
 #define PNDeepGreen     [UIColor colorWithRed:77.0 / 255.0 green:176.0 / 255.0 blue:122.0 / 255.0 alpha:1.0f]
 #define PNRed           [UIColor colorWithRed:245.0 / 255.0 green:94.0 / 255.0 blue:78.0 / 255.0 alpha:1.0f]
+#define PNLightRed      [UIColor colorWithRed:245.0 / 255.0 green:94.0 / 255.0 blue:78.0 / 255.0 alpha:1.0f]
+#define PNFreshRed      [UIColor colorWithRed:225.0 / 255.0 green:94.0 / 255.0 blue:78.0 / 255.0 alpha:1.0f]
+#define PNDeepRed       [UIColor colorWithRed:205.0 / 255.0 green:94.0 / 255.0 blue:78.0 / 255.0 alpha:1.0f]
 #define PNMauve         [UIColor colorWithRed:88.0 / 255.0 green:75.0 / 255.0 blue:103.0 / 255.0 alpha:1.0f]
 #define PNBrown         [UIColor colorWithRed:119.0 / 255.0 green:107.0 / 255.0 blue:95.0 / 255.0 alpha:1.0f]
 #define PNBlue          [UIColor colorWithRed:82.0 / 255.0 green:116.0 / 255.0 blue:188.0 / 255.0 alpha:1.0f]
@@ -45,9 +48,44 @@
 #define PNWeiboColor    [UIColor colorWithRed:250.0 / 255.0 green:0.0 / 255.0 blue:33.0 / 255.0 alpha:1.0]
 #define PNiOSGreenColor [UIColor colorWithRed:98.0 / 255.0 green:247.0 / 255.0 blue:77.0 / 255.0 alpha:1.0]
 
+//addded colors
+#define PNBlueTone0     [UIColor colorWithRed:94.0 / 255.0 green:147.0 / 255.0 blue:196.0 / 255.0 alpha:1.0f]
+#define PNBlueTone1     [UIColor colorWithRed:94.0 / 255.0 green:147.0 / 255.0 blue:176.0 / 255.0 alpha:1.0f]
+#define PNBlueTone2     [UIColor colorWithRed:94.0 / 255.0 green:147.0 / 255.0 blue:156.0 / 255.0 alpha:1.0f]
+#define PNBlueTone3     [UIColor colorWithRed:94.0 / 255.0 green:147.0 / 255.0 blue:136.0 / 255.0 alpha:1.0f]
+#define PNBlueTone4     [UIColor colorWithRed:94.0 / 255.0 green:147.0 / 255.0 blue:116.0 / 255.0 alpha:1.0f]
+#define PNBlueTone5     [UIColor colorWithRed:94.0 / 255.0 green:147.0 / 255.0 blue:96.0 / 255.0 alpha:1.0f]
+#define PNBlueTone6     [UIColor colorWithRed:94.0 / 255.0 green:147.0 / 255.0 blue:76.0 / 255.0 alpha:1.0f]
+
+#define PNRedTone0      [UIColor colorWithRed:245.0 / 255.0 green:94.0 / 255.0 blue:78.0 / 255.0 alpha:1.0f]
+#define PNRedTone1      [UIColor colorWithRed:225.0 / 255.0 green:94.0 / 255.0 blue:78.0 / 255.0 alpha:1.0f]
+#define PNRedTone2      [UIColor colorWithRed:205.0 / 255.0 green:94.0 / 255.0 blue:78.0 / 255.0 alpha:1.0f]
+#define PNRedTone3      [UIColor colorWithRed:185.0 / 255.0 green:94.0 / 255.0 blue:78.0 / 255.0 alpha:1.0f]
+#define PNRedTone4      [UIColor colorWithRed:165.0 / 255.0 green:94.0 / 255.0 blue:78.0 / 255.0 alpha:1.0f]
+#define PNRedTone5      [UIColor colorWithRed:145.0 / 255.0 green:94.0 / 255.0 blue:78.0 / 255.0 alpha:1.0f]
+#define PNRedTone6      [UIColor colorWithRed:125.0 / 255.0 green:94.0 / 255.0 blue:78.0 / 255.0 alpha:1.0f]
+
+#define PNGreyTone0     [UIColor colorWithRed:225.0 / 255.0 green:225.0 / 255.0 blue:225.0 / 255.0 alpha:1.0f]
+#define PNGreyTone1     [UIColor colorWithRed:205.0 / 255.0 green:205.0 / 255.0 blue:205.0 / 255.0 alpha:1.0f]
+#define PNGreyTone2     [UIColor colorWithRed:185.0 / 255.0 green:185.0 / 255.0 blue:185.0 / 255.0 alpha:1.0f]
+#define PNGreyTone3     [UIColor colorWithRed:165.0 / 255.0 green:165.0 / 255.0 blue:165.0 / 255.0 alpha:1.0f]
+#define PNGreyTone4     [UIColor colorWithRed:145.0 / 255.0 green:145.0 / 255.0 blue:145.0 / 255.0 alpha:1.0f]
+#define PNGreyTone5     [UIColor colorWithRed:125.0 / 255.0 green:125.0 / 255.0 blue:125.0 / 255.0 alpha:1.0f]
+#define PNGreyTone6     [UIColor colorWithRed:105.0 / 255.0 green:105.0 / 255.0 blue:105.0 / 255.0 alpha:1.0f]
+
+#define PNGreenTone0    [UIColor colorWithRed:77.0 / 255.0 green:216.0 / 255.0 blue:122.0 / 255.0 alpha:1.0f]
+#define PNGreenTone1    [UIColor colorWithRed:77.0 / 255.0 green:196.0 / 255.0 blue:122.0 / 255.0 alpha:1.0f]
+#define PNGreenTone2    [UIColor colorWithRed:77.0 / 255.0 green:176.0 / 255.0 blue:122.0 / 255.0 alpha:1.0f]
+#define PNGreenTone3    [UIColor colorWithRed:77.0 / 255.0 green:156.0 / 255.0 blue:122.0 / 255.0 alpha:1.0f]
+#define PNGreenTone4    [UIColor colorWithRed:77.0 / 255.0 green:136.0 / 255.0 blue:122.0 / 255.0 alpha:1.0f]
+#define PNGreenTone5    [UIColor colorWithRed:77.0 / 255.0 green:116.0 / 255.0 blue:122.0 / 255.0 alpha:1.0f]
+#define PNGreenTone6    [UIColor colorWithRed:77.0 / 255.0 green:96.0 / 255.0 blue:122.0 / 255.0 alpha:1.0f]
+
 
 @interface PNColor : NSObject
 
 - (UIImage *)imageFromColor:(UIColor *)color;
 
 @end
+
+

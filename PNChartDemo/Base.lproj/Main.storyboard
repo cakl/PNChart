@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="9Rt-UT-IxH">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="9Rt-UT-IxH">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
     <scenes>
         <!--PNChart-->
@@ -27,7 +27,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FUU-vZ-jMd">
-                                <rect key="frame" x="53" y="81" width="215" height="30"/>
+                                <rect key="frame" x="133" y="81" width="57" height="32"/>
                                 <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="23"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -56,12 +56,22 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S0W-b0-x8a" customClass="PNPieChart">
+                                <rect key="frame" x="80" y="144" width="160" height="160"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="160" id="TLu-c2-FDb"/>
+                                    <constraint firstAttribute="height" constant="160" id="b1k-SE-SOC"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="FUU-vZ-jMd" firstAttribute="top" secondItem="znr-YO-4a4" secondAttribute="bottom" constant="17" id="DLv-qJ-h7R"/>
+                            <constraint firstAttribute="centerX" secondItem="S0W-b0-x8a" secondAttribute="centerX" id="WwY-fL-VTL"/>
                             <constraint firstAttribute="centerX" secondItem="FUU-vZ-jMd" secondAttribute="centerX" id="YGT-a5-Zka"/>
                             <constraint firstItem="L3F-13-Wf5" firstAttribute="top" secondItem="znr-YO-4a4" secondAttribute="bottom" constant="300" id="ewm-kv-p8k"/>
+                            <constraint firstItem="S0W-b0-x8a" firstAttribute="top" secondItem="FUU-vZ-jMd" secondAttribute="bottom" constant="31" id="nIc-7q-WvL"/>
                             <constraint firstAttribute="centerX" secondItem="L3F-13-Wf5" secondAttribute="centerX" id="zXw-WV-mro"/>
                         </constraints>
                     </view>
@@ -70,6 +80,7 @@
                         <outlet property="changeValueButton" destination="L3F-13-Wf5" id="JnI-y3-Xpj"/>
                         <outlet property="leftLabel" destination="IKu-qh-ksi" id="CPy-oy-qCP"/>
                         <outlet property="leftSwitch" destination="ORA-mb-hJl" id="u1M-2f-6P1"/>
+                        <outlet property="pieChart" destination="S0W-b0-x8a" id="jUg-mf-lqW"/>
                         <outlet property="rightLabel" destination="Ifm-a9-Wkq" id="QhE-j2-qpe"/>
                         <outlet property="rightSwitch" destination="qR7-40-7ir" id="noL-6R-d3a"/>
                         <outlet property="titleLabel" destination="FUU-vZ-jMd" id="dA3-KC-Ht4"/>

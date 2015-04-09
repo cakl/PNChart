@@ -12,11 +12,7 @@
 
 @interface PNPieChart()
 
-@property (nonatomic) NSArray *items;
 @property (nonatomic) NSArray *endPercentages;
-
-@property (nonatomic) CGFloat outerCircleRadius;
-@property (nonatomic) CGFloat innerCircleRadius;
 
 @property (nonatomic) UIView         *contentView;
 @property (nonatomic) CAShapeLayer   *pieLayer;
@@ -61,6 +57,24 @@
         [self loadDefault];
     }
     
+    return self;
+}
+
+- (instancetype)initWithCoder:(NSCoder *)coder{
+    self = [super initWithCoder:coder];
+    if (self) {
+        _outerCircleRadius  = CGRectGetWidth(self.bounds) / 2;
+        _innerCircleRadius  = CGRectGetWidth(self.bounds) / 6;
+        
+        _descriptionTextColor = [UIColor whiteColor];
+        _descriptionTextFont  = [UIFont fontWithName:@"Avenir-Medium" size:18.0];
+        _descriptionTextShadowColor  = [[UIColor blackColor] colorWithAlphaComponent:0.4];
+        _descriptionTextShadowOffset =  CGSizeMake(0, 1);
+        _duration = 1.0;
+        
+        [super setupDefaultValues];
+        [self loadDefault];
+    }
     return self;
 }
 
@@ -138,6 +152,8 @@
     }
     if(!titleText || self.showOnlyValues){
         descriptionLabel.text = titleValue;
+    } else if(self.showOnlyDescriptionIfAvailable && titleText){
+        descriptionLabel.text = titleText;
     }
     else {
         NSString* str = [titleValue stringByAppendingString:[NSString stringWithFormat:@"\n%@",titleText]];
@@ -253,59 +269,59 @@
     }];
 }
 
-- (void)didTouchAt:(CGPoint)touchLocation
-{
-    CGPoint circleCenter = CGPointMake(_contentView.bounds.size.width/2, _contentView.bounds.size.height/2);
-    
-    CGFloat distanceFromCenter = sqrtf(powf((touchLocation.y - circleCenter.y),2) + powf((touchLocation.x - circleCenter.x),2));
-    
-    if (distanceFromCenter < _innerCircleRadius) {
-        if ([self.delegate respondsToSelector:@selector(didUnselectPieItem)]) {
-            [self.delegate didUnselectPieItem];
-        }
-        [self.sectorHighlight removeFromSuperlayer];
-        return;
-    }
-    
-    CGFloat percentage = [self findPercentageOfAngleInCircle:circleCenter fromPoint:touchLocation];
-    int index = 0;
-    while (percentage > [self endPercentageForItemAtIndex:index]) {
-        index ++;
-    }
-
-    if ([self.delegate respondsToSelector:@selector(userClickedOnPieIndexItem:)]) {
-        [self.delegate userClickedOnPieIndexItem:index];
-    }
-    
-    if (self.sectorHighlight) {
-        [self.sectorHighlight removeFromSuperlayer];
-    }
-    PNPieChartDataItem *currentItem = [self dataItemForIndex:index];
-    
-    CGFloat red,green,blue,alpha;
-    UIColor *old = currentItem.color;
-    [old getRed:&red green:&green blue:&blue alpha:&alpha];
-    alpha /= 2;
-    UIColor *newColor = [UIColor colorWithRed:red green:green blue:blue alpha:alpha];
-    
-    CGFloat startPercnetage = [self startPercentageForItemAtIndex:index];
-    CGFloat endPercentage   = [self endPercentageForItemAtIndex:index];
-    self.sectorHighlight =	[self newCircleLayerWithRadius:_outerCircleRadius + 5
-                                              borderWidth:10
-                                                fillColor:[UIColor clearColor]
-                                              borderColor:newColor
-                                          startPercentage:startPercnetage
-                                            endPercentage:endPercentage];
-    [_contentView.layer addSublayer:self.sectorHighlight];
-}
-
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    for (UITouch *touch in touches) {
-        CGPoint touchLocation = [touch locationInView:_contentView];
-        [self didTouchAt:touchLocation];
-    }
-}
+//- (void)didTouchAt:(CGPoint)touchLocation
+//{
+//    CGPoint circleCenter = CGPointMake(_contentView.bounds.size.width/2, _contentView.bounds.size.height/2);
+//    
+//    CGFloat distanceFromCenter = sqrtf(powf((touchLocation.y - circleCenter.y),2) + powf((touchLocation.x - circleCenter.x),2));
+//    
+//    if (distanceFromCenter < _innerCircleRadius) {
+//        if ([self.delegate respondsToSelector:@selector(didUnselectPieItem)]) {
+//            [self.delegate didUnselectPieItem];
+//        }
+//        [self.sectorHighlight removeFromSuperlayer];
+//        return;
+//    }
+//    
+//    CGFloat percentage = [self findPercentageOfAngleInCircle:circleCenter fromPoint:touchLocation];
+//    int index = 0;
+//    while (percentage > [self endPercentageForItemAtIndex:index]) {
+//        index ++;
+//    }
+//
+//    if ([self.delegate respondsToSelector:@selector(userClickedOnPieIndexItem:)]) {
+//        [self.delegate userClickedOnPieIndexItem:index];
+//    }
+//    
+//    if (self.sectorHighlight) {
+//        [self.sectorHighlight removeFromSuperlayer];
+//    }
+//    PNPieChartDataItem *currentItem = [self dataItemForIndex:index];
+//    
+//    CGFloat red,green,blue,alpha;
+//    UIColor *old = currentItem.color;
+//    [old getRed:&red green:&green blue:&blue alpha:&alpha];
+//    alpha /= 2;
+//    UIColor *newColor = [UIColor colorWithRed:red green:green blue:blue alpha:alpha];
+//    
+//    CGFloat startPercnetage = [self startPercentageForItemAtIndex:index];
+//    CGFloat endPercentage   = [self endPercentageForItemAtIndex:index];
+//    self.sectorHighlight =	[self newCircleLayerWithRadius:_outerCircleRadius + 5
+//                                              borderWidth:10
+//                                                fillColor:[UIColor clearColor]
+//                                              borderColor:newColor
+//                                          startPercentage:startPercnetage
+//                                            endPercentage:endPercentage];
+//    [_contentView.layer addSublayer:self.sectorHighlight];
+//}
+//
+//- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+//{
+//    for (UITouch *touch in touches) {
+//        CGPoint touchLocation = [touch locationInView:_contentView];
+//        [self didTouchAt:touchLocation];
+//    }
+//}
 
 - (CGFloat) findPercentageOfAngleInCircle:(CGPoint)center fromPoint:(CGPoint)reference{
     //Find angle of line Passing In Reference And Center
